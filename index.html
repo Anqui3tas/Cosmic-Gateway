@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cosmic Gateway</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Large screen header: both logos side by side -->
+  <header class="header-logos">
+    <img src="images/lanteacorp-logo.png" alt="Lantea Corporation Logo" class="logo lantea">
+    <img src="images/pinktrianglestudios-logo.png" alt="Pink Triangle Studios Logo" class="logo pinktriangle">
+  </header>
+
+  <!-- Small screen header: only Lantea at the top -->
+  <div class="mobile-header-logos">
+    <img src="images/lanteacorp-logo.png" alt="Lantea Corporation Logo" class="logo lantea">
+  </div>
+
+  <div class="gallery"></div>
+
+  <!-- Small screen footer: only Pink Triangle at the bottom -->
+  <div class="mobile-footer-logos">
+    <img src="images/pinktrianglestudios-logo.png" alt="Pink Triangle Studios Logo" class="logo pinktriangle">
+  </div>
+
+  <!-- Simple global footer for all screen sizes -->
+  <footer class="global-footer">
+    <p>
+      <a href="https://github.com/Anqui3tas" target="_blank" rel="noopener noreferrer">Always Open Source</a> - &copy; LanteaCorp ’25
+    </p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const cards = [
+        {
+          title: "Icarus",
+          image: "images/image-01.jpg",
+          alt: "Icarus",
+          link: "http://icarus.lanteacorp.com"
+        },
+        {
+          title: "Repository",
+          image: "images/image-02.jpg",
+          alt: "Repository",
+          link: "http://files.lanteacorp.com"
+        },
+        {
+          title: "Fiesta Online",
+          image: "images/image-03.jpg",
+          alt: "Fiesta Online",
+          link: "http://fiesta.lanteacorp.com"
+        },
+        {
+          title: "Fiesta RPG",
+          image: "images/image-04.jpg",
+          alt: "Fiesta RPG",
+          link: "http://fiesta.lanteacorp.com/game"
+        }
+      ];
+
+      const gallery = document.querySelector(".gallery");
+
+      cards.forEach(function(card) {
+        const figure = document.createElement("figure");
+        figure.className = "card";
+
+        const img = document.createElement("img");
+        img.src = card.image;
+        img.alt = card.alt;
+
+        const caption = document.createElement("figcaption");
+        caption.textContent = card.title;
+
+        figure.appendChild(img);
+        figure.appendChild(caption);
+
+        figure.addEventListener("click", function() {
+          window.location.href = card.link;
+        });
+
+        gallery.appendChild(figure);
+      });
+    });
+  </script>
+</body>
+</html>
