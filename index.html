@@ -34,7 +34,8 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      const cards = [
+      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      const cardsData = [
         {
           title: "Icarus",
           image: "images/image-01.jpg",
@@ -60,27 +61,38 @@
           link: "http://fiesta.lanteacorp.com/game"
         }
       ];
-
+      
       const gallery = document.querySelector(".gallery");
-
-      cards.forEach(function(card) {
+      
+      cardsData.forEach(function(card) {
         const figure = document.createElement("figure");
         figure.className = "card";
-
+        figure.setAttribute("data-link", card.link);
+      
         const img = document.createElement("img");
         img.src = card.image;
         img.alt = card.alt;
-
+      
         const caption = document.createElement("figcaption");
         caption.textContent = card.title;
-
+      
         figure.appendChild(img);
         figure.appendChild(caption);
-
-        figure.addEventListener("click", function() {
-          window.location.href = card.link;
+      
+        figure.addEventListener("click", function(e) {
+          if (isTouchDevice && !figure.classList.contains("active")) {
+            // First tap on touch devices: expand the card (simulate hover)
+            e.preventDefault();
+            e.stopPropagation();
+            // Remove active from any other card
+            document.querySelectorAll('.card.active').forEach(c => c.classList.remove("active"));
+            figure.classList.add("active");
+            return;
+          }
+          // For desktops or if already active on touch, navigate:
+          window.location.href = figure.getAttribute("data-link");
         });
-
+      
         gallery.appendChild(figure);
       });
     });
