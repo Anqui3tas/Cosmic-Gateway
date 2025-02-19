@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Cosmic Gateway</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -38,27 +39,35 @@
       const cardsData = [
         {
           title: "Icarus",
-          image: "images/image-01.jpg",
+          image: "images/Icarus.jpg",
           alt: "Icarus",
-          link: "http://icarus.lanteacorp.com"
+          link: "http://icarus.lanteacorp.com",
+          imgPosLarge: "center 80%",  // Adjust as needed for large screens
+          imgPosSmall: "center 30%"   // Adjust as needed for small screens
         },
         {
-          title: "Repository",
-          image: "images/image-02.jpg",
-          alt: "Repository",
-          link: "http://files.lanteacorp.com"
+          title: "Athena",
+          image: "images/Athena.jpg",
+          alt: "Athena",
+          link: "http://files.lanteacorp.com",
+          imgPosLarge: "center center",  
+          imgPosSmall: "center 32%"
         },
         {
           title: "Fiesta Online",
-          image: "images/image-03.jpg",
+          image: "images/fiestaonline.jpg",
           alt: "Fiesta Online",
-          link: "http://fiesta.lanteacorp.com"
+          link: "http://fiesta.lanteacorp.com",
+          imgPosLarge: "center center",
+          imgPosSmall: "center 23%"
         },
         {
           title: "Fiesta RPG",
-          image: "images/image-04.jpg",
+          image: "images/fiestarpg.jpg",
           alt: "Fiesta RPG",
-          link: "http://fiesta.lanteacorp.com/game"
+          link: "http://fiesta.lanteacorp.com/game",
+          imgPosLarge: "center center",
+          imgPosSmall: "center 42%"
         }
       ];
       
@@ -68,31 +77,36 @@
         const figure = document.createElement("figure");
         figure.className = "card";
         figure.setAttribute("data-link", card.link);
-      
+        
+        // Set custom image position properties on the card element
+        if (card.imgPosLarge) {
+          figure.style.setProperty("--img-pos-large", card.imgPosLarge);
+        }
+        if (card.imgPosSmall) {
+          figure.style.setProperty("--img-pos-small", card.imgPosSmall);
+        }
+        
         const img = document.createElement("img");
         img.src = card.image;
         img.alt = card.alt;
-      
+        
         const caption = document.createElement("figcaption");
         caption.textContent = card.title;
-      
+        
         figure.appendChild(img);
         figure.appendChild(caption);
-      
+        
         figure.addEventListener("click", function(e) {
           if (isTouchDevice && !figure.classList.contains("active")) {
-            // First tap on touch devices: expand the card (simulate hover)
             e.preventDefault();
             e.stopPropagation();
-            // Remove active from any other card
             document.querySelectorAll('.card.active').forEach(c => c.classList.remove("active"));
             figure.classList.add("active");
             return;
           }
-          // For desktops or if already active on touch, navigate:
           window.location.href = figure.getAttribute("data-link");
         });
-      
+        
         gallery.appendChild(figure);
       });
     });
