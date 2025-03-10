@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>404 Not Found - Cosmic Gateway</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Import Montserrat font like the main page -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
+  <!-- Link to your main stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Inline fallback styling */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #000; /* Adjust to match your main page background */
+      font-family: 'Montserrat', sans-serif;
+      color: #fff;
+      margin: 0;
+    }
+    .error-container {
+      text-align: center;
+      padding: 20px;
+    }
+    a {
+      color: #fff;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Include header if you have one set up as an SSI -->
+  <!--#include virtual="header.shtml" -->
+  
+  <div class="error-container">
+    <h1>404 - Page Not Found</h1>
+    <p>We're sorry, but the page you requested could not be found.</p>
+    <p><a href="/">Return to the homepage</a></p>
+  </div>
+  
+  <!-- Include footer if available -->
+  <!--#include virtual="footer.shtml" -->
+</body>
+</html>
