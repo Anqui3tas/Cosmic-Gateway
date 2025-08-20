@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import Toast from './Toast';
 
-export default function ContactForm(){
+export default function ContactForm() {
   const [toast, setToast] = useState('');
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
-    const res = await fetch('/api/contact.php', { method:'POST', body:data });
-    const json = await res.json().catch(() => ({ ok:false }));
+    const res = await fetch('/api/contact.php', { method: 'POST', body: data });
+    const json = await res.json().catch(() => ({ ok: false }));
     setToast(json.ok ? 'Message sent' : 'Error sending message');
     form.reset();
   };

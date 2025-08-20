@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 interface Props { images: string[]; }
-export default function ScreenshotCarousel({ images }: Props){
+export default function ScreenshotCarousel({ images }: Props) {
   const [index, setIndex] = useState(0);
   const prev = () => setIndex((index - 1 + images.length) % images.length);
   const next = () => setIndex((index + 1) % images.length);

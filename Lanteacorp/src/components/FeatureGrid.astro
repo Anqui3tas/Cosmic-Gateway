@@ -3,7 +3,7 @@ const { items } = Astro.props;
 ---
 <div class="grid gap-6 md:grid-cols-3">
   {items.map(item => (
-    <div class="p-4 bg-space-base2 rounded" >
+    <div class="p-4 bg-space-base2 rounded">
       <h3 class="text-lg font-semibold">{item.title}</h3>
       <p class="text-sm text-neutral-muted">{item.body}</p>
     </div>
