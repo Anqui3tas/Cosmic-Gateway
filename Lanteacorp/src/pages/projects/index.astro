@@ -1,0 +1,15 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ProjectCard from '@/components/ProjectCard.astro';
+const projects = [
+  { href: '/projects/icarus', title: 'Icarus', tags: ['iOS','tvOS'] },
+  { href: '/projects/athena', title: 'Athena', tags: ['Private'] },
+  { href: '/projects/fiesta-online', title: 'Fiesta Online', tags: ['Web'] },
+  { href: '/projects/fiesta-rpg', title: 'Fiesta RPG', tags: ['In Progress'] }
+];
+---
+<BaseLayout title="Projects">
+  <section class="p-4 grid gap-4 md:grid-cols-2">
+    {projects.map(p => <ProjectCard {...p} />)}
+  </section>
+</BaseLayout>

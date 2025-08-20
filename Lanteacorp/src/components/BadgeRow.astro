@@ -1,0 +1,7 @@
+---
+const { appstore = '#', testflight = '#' } = Astro.props;
+---
+<div class="flex gap-4">
+  <a href={appstore} class="block w-32 h-10 bg-neutral-muted/20 rounded text-center leading-10">App Store</a>
+  <a href={testflight} class="block w-32 h-10 bg-neutral-muted/20 rounded text-center leading-10">TestFlight</a>
+</div>

@@ -1,0 +1,6 @@
+# Example cache headers for static assets
+# <IfModule mod_headers.c>
+#   <FilesMatch "\.(js|css|png|jpg|svg|webp)$">
+#     Header set Cache-Control "public, max-age=31536000"
+#   </FilesMatch>
+# </IfModule>

@@ -1,0 +1,38 @@
+---
+import '../styles/globals.css';
+import LogoSwirl from '@/components/LogoSwirl.astro';
+const { title } = Astro.props;
+---
+<html lang="en" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <title>{title ? `${title} | LanteaCorp` : 'LanteaCorp'}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@700&display=swap" />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <header class="p-4 flex justify-between items-center">
+      <a href="/" class="flex items-center gap-2">
+        <LogoSwirl />
+        <span class="font-bold">LanteaCorp</span>
+      </a>
+      <div class="flex items-center gap-4 text-sm">
+        <nav class="space-x-4">
+          <a href="/projects">Projects</a>
+          <a href="/studios">Studios</a>
+          <a href="/blog">Blog</a>
+          <a href="/contact">Contact</a>
+        </nav>
+        <button id="theme-toggle" class="border px-2 py-1 rounded">🌓</button>
+      </div>
+    </header>
+    <main class="flex-1">
+      <slot />
+    </main>
+    <footer class="p-4 text-center text-sm text-neutral-muted">© {new Date().getFullYear()} LanteaCorp</footer>
+    <script>
+      const btn = document.getElementById('theme-toggle');
+      btn?.addEventListener('click', () => document.documentElement.classList.toggle('dark'));
+    </script>
+  </body>
+</html>

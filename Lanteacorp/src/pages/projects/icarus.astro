@@ -1,0 +1,26 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import FeatureGrid from '@/components/FeatureGrid.astro';
+import BadgeRow from '@/components/BadgeRow.astro';
+import ScreenshotCarousel from '@/components/ScreenshotCarousel';
+import { getCollection } from 'astro:content';
+const changelog = await getCollection('changelog');
+---
+<BaseLayout title="Icarus">
+  <section class="p-4">
+    <h1 class="text-2xl font-bold">Icarus</h1>
+    <FeatureGrid items={[
+      {title:'Integrations', body:'Radarr, Sonarr, Overseerr, Tautulli, SABnzbd, NZBGet'},
+      {title:'Platforms', body:'iOS, iPadOS, tvOS, visionOS'},
+      {title:'Privacy', body:'data stays on your devices whenever possible'}
+    ]} />
+    <div class="my-4"><BadgeRow /></div>
+    <div class="my-4">
+      <ScreenshotCarousel client:load images={['/images/placeholders/shot1.png','/images/placeholders/shot2.png']} />
+    </div>
+    <h2 class="text-xl font-semibold mt-8 mb-2">Changelog</h2>
+    <ul class="list-disc pl-4">
+      {changelog.map(entry => <li>{entry.data.version} - {entry.data.date}</li>)}
+    </ul>
+  </section>
+</BaseLayout>

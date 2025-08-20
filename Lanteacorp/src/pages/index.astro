@@ -1,0 +1,24 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import BrandSplit from '@/components/BrandSplit.astro';
+import StarfieldHero from '@/components/StarfieldHero';
+import StarfieldCSS from '@/components/StarfieldCSS.astro';
+---
+<BaseLayout>
+  <section class="relative h-64 overflow-hidden flex items-center justify-center text-center">
+    <StarfieldCSS />
+    <StarfieldHero client:load />
+    <div class="relative z-10 px-4">
+      <h1 class="text-3xl font-bold">building stellar tools for screens big and small.</h1>
+      <p class="mt-2 max-w-xl mx-auto">LanteaCorp crafts media and game experiences—from Icarus, our all-in-one media manager, to the myth-touched worlds of Fiesta.</p>
+      <div class="mt-4 flex gap-4 justify-center">
+        <a href="/projects" class="underline">View Projects</a>
+        <a href="/studios" class="underline">Explore Studios</a>
+        <a href="/projects/icarus" class="underline">Download Icarus</a>
+      </div>
+    </div>
+  </section>
+  <section class="p-4">
+    <BrandSplit />
+  </section>
+</BaseLayout>

@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-space-base: #0B1020;
+  --color-space-base2: #121933;
+  --color-space-base3: #1B2A4A;
+  --color-nebula-purple: #7A5CFF;
+  --color-nebula-cyan: #00D1FF;
+  --color-nebula-magenta: #FF5FA2;
+  --color-nebula-sun: #FFE66D;
+  --color-neutral-text: #E6EDF3;
+  --color-neutral-muted: #B2BDCD;
+}
+
+body {
+  @apply bg-space-base text-neutral-text;
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.galaxy-grid {
+  background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
