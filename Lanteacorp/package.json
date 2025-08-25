@@ -10,14 +10,14 @@
     "lint": "echo 'No lint configured'"
   },
   "dependencies": {
-    "astro": "^4.0.0",
-    "@astrojs/react": "^3.0.0",
-    "@astrojs/tailwind": "^4.0.0",
+    "@astrojs/react": "^4.3.0",
+    "@astrojs/tailwind": "^6.0.2",
+    "astro": "^5.13.2",
+    "framer-motion": "^11.0.0",
+    "lucide-react": "^0.335.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "framer-motion": "^11.0.0",
-    "three": "^0.161.0",
-    "lucide-react": "^0.335.0"
+    "three": "^0.161.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",
